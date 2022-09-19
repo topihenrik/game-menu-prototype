@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./favicon.svg">
+</head>
+<body id="settings">
+    <nav class="settings-nav">
+        <button>Game</button>
+        <button id="btnVideo">Video</button>
+        <button id="btnAudio">Audio</button>
+        <button>Controls</button>
+    </nav>
+    <nav class="controls-nav">
+        <a href="/index.html"><button>Back</button></a>
+        <button>Save</button>
+        <button>Defaults</button>
+    </nav>
+    <form id="form-video-settings">
+        <div class="input-group">
+            <label>Overall Quality</label>
+            <select id="lightning">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option selected="true">Epic</option>   
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Window Mode</label>
+            <select id="window">
+                <option>Windowed</option>
+                <option selected="true">Fullscreen</option> 
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Vertical Sync</label>
+            <select id="lightning">
+                <option>On</option>
+                <option selected="true">Off</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Resolution</label>
+            <select id="resolution">
+                <option>1280x720</option>
+                <option selected="true">1920x1080</option>
+                <option>2560x1440</option>
+                <option>3840x2160</option>   
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Texture Quality</label>
+            <select id="texture">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option selected="true">Epic</option>   
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Lightning Quality</label>
+            <select id="lightning">
+                <option>Low</option>
+                <option selected="true">Medium</option>
+                <option>High</option>
+                <option selected="true">Epic</option>   
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Resolution Scale</label>
+            <input id="resScaleSlider" value="100" class="slider" type="range"/>
+            <p id="resolutionScaleResult">100%</p>
+        </div>
+        <div class="input-group">
+            <label>Show FPS</label>
+            <input id="showfpscheckbox" type="checkbox"/>
+        </div>
+        
+    </form>
+
+    <form id="form-audio-settings">
+        <div class="input-group">
+            <label>Master Volume</label>
+            <input id="masterSlider" value="100" class="slider" type="range"/>
+            <p id="masterResult">100%</p>
+        </div>
+        <div class="input-group">
+            <label>Music Volume</label>
+            <input id="musicSlider" value="100" class="slider" type="range"/>
+            <p id="musicResult">100%</p>
+        </div>
+        <div class="input-group">
+            <label>Effects Volume</label>
+            <input id="effectsSlider" value="100" class="slider" type="range"/>
+            <p id="effectsResult">100%</p>
+        </div>
+        <div class="input-group">
+            <label>Dialogue Volume</label>
+            <input id="dialogueSlider" value="100" class="slider" type="range"/>
+            <p id="dialogueResult">100%</p>
+        </div>
+    </form>
+    <script defer>
+        window.onload = () => {
+            formVideo.setAttribute("style", "display: flex");
+            formAudio.setAttribute("style", "display: none");          
+        }
+
+        const formVideo = document.getElementById("form-video-settings");
+        const formAudio = document.getElementById("form-audio-settings");
+
+
+        const resScaleSlider = document.getElementById("resScaleSlider");
+        resScaleSlider.addEventListener("change", (e) => {
+            const resolutionScaleResult = document.getElementById("resolutionScaleResult");
+            resolutionScaleResult.innerText = e.target.value + "%"
+        })
+
+
+        const dialogueSlider = document.getElementById("dialogueSlider");
+        dialogueSlider.addEventListener("change", (e) => {
+            const dialogueResult = document.getElementById("dialogueResult");
+            dialogueResult.innerText = e.target.value + "%"
+        })
+
+        const masterSlider = document.getElementById("masterSlider");
+        masterSlider.addEventListener("change", (e) => {
+            const masterResult = document.getElementById("masterResult");
+            masterResult.innerText = e.target.value + "%"
+        })
+
+        const musicSlider = document.getElementById("musicSlider");
+        musicSlider.addEventListener("change", (e) => {
+            const musicResult = document.getElementById("musicResult");
+            musicResult.innerText = e.target.value + "%"
+        })
+
+        const effectsSlider = document.getElementById("effectsSlider");
+        effectsSlider.addEventListener("change", (e) => {
+            const effectsResult = document.getElementById("effectsResult");
+            effectsResult.innerText = e.target.value + "%"
+        })
+
+        
+
+        
+        const btnVideo = document.getElementById("btnVideo");
+        const btnAudio = document.getElementById("btnAudio");
+        btnVideo.addEventListener("click", () => {
+            formVideo.setAttribute("style", "display: flex");
+            formAudio.setAttribute("style", "display: none");
+        })
+
+        btnAudio.addEventListener("click", () => {
+            formVideo.setAttribute("style", "display: none");
+            formAudio.setAttribute("style", "display: flex");
+        })
+        
+
+
+        
+    </script>
+</body>
+</html>
