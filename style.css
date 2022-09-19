@@ -18,6 +18,8 @@ body#home {
     display: grid;
     background-image: url("./menubackground.png");
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     grid-template: 1fr 4fr 1fr / 1fr 2fr 1fr;
     
 }
@@ -101,6 +103,8 @@ body#settings {
     display: grid;
     background-image: url("./menubackground.png");
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     grid-template: 1fr 4fr 1fr / 1fr 2fr 2fr 2fr 1fr;
 }
 
@@ -110,6 +114,7 @@ body#settings {
     justify-content: center;
     gap: 32px;
     grid-area: 2 / 2 / 3 / 4;
+    overflow-y: auto;
 }
 
 
